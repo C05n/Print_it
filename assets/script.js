@@ -52,12 +52,14 @@ function updateDots() {
 /*** Fonctionnalité des flèches ***/
 
 arrowLeft.addEventListener('click', () => {
-   currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+   currentSlide = currentSlide - 1;
+	if (currentSlide < 0) currentSlide = slides.length - 1;
    updateSlide();
 });
 
 arrowRight.addEventListener('click', () => {
-   currentSlide = (currentSlide + 1) % slides.length;
+   currentSlide = (currentSlide + 1);
+	if (currentSlide >= slides.length) currentSlide = 0;
    updateSlide();
 });
 
